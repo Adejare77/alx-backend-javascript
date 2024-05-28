@@ -1,8 +1,5 @@
-function sum(...theArgs) {
-  for (const arg of theArgs) {
-    console.log(arg);
-  }
-}
+const array = ['rashisky', 'paper', 'legolas', 1];
 
-const x = sum('paper', 'rashisky', 'legolas');
-console.log(x);
+for (const [index] of array.entries()) {
+  console.log(index);
+}
