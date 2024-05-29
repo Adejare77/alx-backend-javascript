@@ -6,6 +6,6 @@ export default function handleResponseFromAPI(promise) {
     })
     .catch(() => {
       console.error('Got a response from the API');
-      return '';
+      return new Error('');
     });
 }
