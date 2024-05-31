@@ -1,5 +1,8 @@
-const array = ['rashisky', 'paper', 'legolas', 1];
+const obj = {
+    a: "John",
+    b: 2
+}
 
-for (const [index] of array.entries()) {
-  console.log(index);
+for (const [k,v] in obj) {
+    console.log(k, v)
 }
