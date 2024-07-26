@@ -15,7 +15,7 @@ function countStudents(path) {
         .filter((line) => line.trim() !== '')
         .map((line) => line.split(','));
 
-      let studentsInfo = 'This is the list of our students\n';
+      let studentsInfo = '';
       const noOfStudents = `Number of students: ${students.length}`;
 
       const fields = {};
@@ -46,18 +46,16 @@ const app = createServer((request, response) => {
     countStudents(process.argv[2])
       .then((data) => {
         response.statusCode = 200;
+        response.write('This is the list of our students\n');
         response.end(data);
       })
       .catch((err) => {
-        response.statusCode = 500;
+        response.statusCode = 404;
         response.end(err.message);
       });
-  } else {
-    response.statusCode = 404;
-    response.end('Not Found');
   }
 });
-const hostname = 'localhost';
+const hostname = '127.0.0.1';
 const port = 1245;
 app.listen(port, hostname);
 
