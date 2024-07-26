@@ -50,6 +50,7 @@ const app = createServer((request, response) => {
         response.end(data);
       })
       .catch((err) => {
+        response.write('This is the list of our students\n');
         response.statusCode = 404;
         response.end(err.message);
       });
