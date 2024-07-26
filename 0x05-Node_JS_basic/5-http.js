@@ -15,7 +15,7 @@ function countStudents(path) {
         .filter((line) => line.trim() !== '')
         .map((line) => line.split(','));
 
-      let studentsInfo = '';
+      let studentsInfo = 'This is the list of our students\n';
       const noOfStudents = `Number of students: ${students.length}`;
 
       const fields = {};
@@ -28,7 +28,7 @@ function countStudents(path) {
         fields[field].push(firstName);
       }
 
-      studentsInfo = noOfStudents;
+      studentsInfo = studentsInfo.concat(noOfStudents);
       for (const [field, names] of Object.entries(fields)) {
         studentsInfo = studentsInfo.concat(`\nNumber of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
       }
