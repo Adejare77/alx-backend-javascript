@@ -1,31 +1,70 @@
-const assert = require("assert");
-const { it, describe } = require("mocha");
-const calculateNumber = require("./0-calcul");
+#!/usr/bin/node
 
-describe("calculateNumber()", function() {
+const assert = require('assert');
+const calculateNumber = require('./0-calcul')
 
-    it(`checking if numbers round`, function() {
-      const res = calculateNumber(1, 2);
-      assert.strictEqual(res, 3);
-    });
-    it(`checking if numbers round`, function() {
-      const res = calculateNumber(1.4, 2.2);
-      assert.strictEqual(res, 3);
-    });
-    it(`checking if numbers round`, function() {
-      const res = calculateNumber(1.6, 2.7);
-      assert.strictEqual(res, 5);
-    });
-    it(`checking if numbers round`, function() {
-      const res = calculateNumber(0, 0);
-      assert.strictEqual(res, 0);
-    });
-    it(`checking if numbers round`, function() {
-      const res = calculateNumber(-1.6, -1.7);
-      assert.strictEqual(res, -4);
-    });
-    it(`checking if numbers round`, function() {
-      const res = calculateNumber(-1.4, -1.3);
-	assert.strictEqual(res, -2);
-    });
-});
+describe('calculateNumber', () => {
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(1, 4), 5);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(1.5, 4.2), 5.7);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(1.23, 4.01), 5.24);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(101, 65), 166);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(0.1, 0), 0.1);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(-7, 4), -3);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(7, -11), -4);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(-21, 21), 0);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(74, 7.1), 81.1);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(1.254, 1.21), 2.464);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(44, 43), 87);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(44, 43), 87);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(32, 12), 44);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(34, -2), 32);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(50, 0), 50);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(99, 2), 101);
+  })
+})
