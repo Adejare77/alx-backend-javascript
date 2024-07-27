@@ -4,11 +4,10 @@
 const readDatabase = require('../utils');
 
 class StudentsController {
-  static getAllStudents (request, response) {
-    const firstLine = 'This is the list of our students';
+  static getAllStudents(request, response) {
     readDatabase(process.argv[2])
       .then((data) => {
-        let output = firstLine;
+        let output = 'This is the list of our students';
         const fields = Object.keys(data);
         fields.sort();
         for (const field of fields) {
@@ -17,14 +16,15 @@ class StudentsController {
         response.status = 200;
         response.send(output);
       }).catch((error) => {
-        response.status(500).send(firstLine.concat(error.message));
+        response.status(500).send(error.message);
       });
   }
 
-  static getAllStudentsByMajor (request, response) {
+  static getAllStudentsByMajor(request, response) {
     const field = request.params.major;
     if (field !== 'CS' && field !== 'SWE') {
       response.status(500).send('Major parameter must be CS or SWE');
+      return;
     }
     readDatabase(process.argv[2])
       .then((data) => {
@@ -32,7 +32,7 @@ class StudentsController {
         response.status = 200;
         response.send(firstNames);
       }).catch((err) => {
-        response.status(500).send('Cannot load the database');
+        response.status(500).send(err.message);
       });
   }
 }
