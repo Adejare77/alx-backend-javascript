@@ -9,11 +9,11 @@ describe('calculateNumber', () => {
   })
 
   it('checkes if it is an exact datatype and value', () => {
-    assert.strictEqual(calculateNumber(1.5, 4.2), 5.7);
+    assert.strictEqual(calculateNumber(1.5, 4.2), 6);
   })
 
   it('checkes if it is an exact datatype and value', () => {
-    assert.strictEqual(calculateNumber(1.23, 4.01), 5.24);
+    assert.strictEqual(calculateNumber(1.23, 4.01), 5);
   })
 
   it('checkes if it is an exact datatype and value', () => {
@@ -21,7 +21,7 @@ describe('calculateNumber', () => {
   })
 
   it('checkes if it is an exact datatype and value', () => {
-    assert.strictEqual(calculateNumber(0.1, 0), 0.1);
+    assert.strictEqual(calculateNumber(0.1, 0), 0);
   })
 
   it('checkes if it is an exact datatype and value', () => {
@@ -37,11 +37,11 @@ describe('calculateNumber', () => {
   })
 
   it('checkes if it is an exact datatype and value', () => {
-    assert.strictEqual(calculateNumber(74, 7.1), 81.1);
+    assert.strictEqual(calculateNumber(74, 7.1), 81);
   })
 
   it('checkes if it is an exact datatype and value', () => {
-    assert.strictEqual(calculateNumber(1.254, 1.21), 2.464);
+    assert.strictEqual(calculateNumber(1.254, 1.21), 2);
   })
 
   it('checkes if it is an exact datatype and value', () => {
@@ -66,5 +66,13 @@ describe('calculateNumber', () => {
 
   it('checkes if it is an exact datatype and value', () => {
     assert.strictEqual(calculateNumber(99, 2), 101);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(1.4, 4.5), 6);
+  })
+
+  it('checkes if it is an exact datatype and value', () => {
+    assert.strictEqual(calculateNumber(2.4, 2.4), 4);
   })
 })
