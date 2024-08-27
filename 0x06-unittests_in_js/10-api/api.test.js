@@ -41,17 +41,39 @@ describe("Cart page", function() {
 	});
     });
 
-	describe("Available Payments", function() {
+	describe("Available Payments", (done) => {
 		it("Checks if available_payment contains the right content", (done) => {
 			request.get('http://localhost:7865/available_payments', (err, res, body) => {
-				expect(res.body).to.contain(JSON.stringify({
+				expect(body).to.deep.include(JSON.stringify({
 					payment_methods: {
 						credit_cards: true,
 						paypal: false
 					}
-				}))
+				}));
+				done();
 			})
-			done();
 		})
 	})
+
+
+	describe('Check login', () => {
+		it('Checks if available_payment contains the right content', (done) => {
+			const postData = {
+				userName: 'Betty'
+			};
+
+			request.post({
+				uri: 'http://localhost:7865/login',
+				json: postData
+			}, (err, res, body) => {
+				if (err) {
+					return done(err);
+				}
+
+				// Adjust the expected content to match the actual response format
+				expect(body).to.equal('Welcome Betty')
+				});
+				done();
+		});
+	});
 });
