@@ -56,10 +56,10 @@ describe("Cart page", function() {
 	})
 
 
-	describe('Check login', () => {
-		it('Checks if available_payment contains the right content', (done) => {
+	describe('Check login', (done) => {
+		it('Checks if login contains the right content', (done) => {
 			const postData = {
-				userName: 'Betty'
+				userName: 'John'
 			};
 
 			request.post({
@@ -69,9 +69,7 @@ describe("Cart page", function() {
 				if (err) {
 					return done(err);
 				}
-
-				// Adjust the expected content to match the actual response format
-				expect(body).to.equal('Welcome Betty')
+				expect(body).to.equal('Welcome John')
 				});
 				done();
 		});
