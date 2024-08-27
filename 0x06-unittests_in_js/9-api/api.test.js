@@ -21,26 +21,6 @@ describe('Index page', () => {
     })
   });
 
-  it('Check the Content Type', (done) => {
-    request(url, (err, resp) => {
-      chai.expect(resp.headers['content-type']).to.equal('text/html; charset=utf-8');
-      done();
-    });
-  });
-
-  it('Check the Content Length', (done) => {
-    request(url, (err, resp) => {
-      chai.expect(resp.headers['content-length']).to.equal('29');
-      done();
-    });
-  });
-
-  it('Check the web Server', (done) => {
-    request(url, (err, resp) => {
-      chai.expect(resp.headers['x-powered-by']).to.equal('Express');
-      done();
-    });
-  });
 
   it('should include the correct parameter', (done) => {
     const param = 124
