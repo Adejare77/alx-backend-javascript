@@ -1,8 +1,6 @@
 const { describe, it } = require('mocha');
 const chai = require('chai');
 const request = require('request');
-const app = require('./api');
-const { response } = require('express');
 
 describe('Index page', () => {
   const url = 'http://localhost:7865';
