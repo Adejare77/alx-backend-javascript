@@ -1,44 +1,29 @@
-const { describe, it } = require('mocha');
-const chai = require('chai');
-const request = require('request');
-const app = require('./api');
-const { response } = require('express');
+const request = require("request");
+const {describe, it} = require("mocha");
+const expect = require("chai").expect;
 
-describe('Index page', () => {
-  const url = 'http://localhost:7865';
-
-  it('Check the response status code', (done) => {
-    request(url, (err, response) => {
-      chai.expect(response.statusCode, 200);
-      done();
+describe("Index page", function() {
+    const options = {
+	url: "http://localhost:7865/",
+	method: "GET"
+    }
+    it("check correct status code", function(done) {
+	request(options, function(err, res, body) {
+	    expect(res.statusCode).to.equal(200);
+	    done();
+	});
     });
-  });
-
-  it('Check the response content', (done) => {
-    request(url, (err, response) => {
-      chai.expect(response.body).to.contain('Welcome to the payment system');
-      done();
-    })
-  });
-
-  it('Check the Content Type', (done) => {
-    request(url, (err, resp) => {
-      chai.expect(resp.headers['content-type'], 'text/html; charset=utf-8');
-      done();
+    it("check correct content", function(done) {
+	request(options, function(err, res, body) {
+	    expect(body).to.contain("Welcome to the payment system");
+	    done();
+	});
     });
-  });
-
-  it('Check the Content Length', (done) => {
-    request(url, (err, resp) => {
-      chai.expect(resp.headers['content-length'], '29');
-      done();
+    it("check correct content length", function(done) {
+	request(options, function(err, res, body) {
+	    expect(res.headers['content-length']).to.equal('29');
+	    done();
+	});
     });
-  });
-
-  it('Check the web Server', (done) => {
-    request(url, (err, resp) => {
-      chai.expect(resp.headers['x-powered-by'], 'Express');
-      done();
-    });
-  });
-})
+});
+ls
